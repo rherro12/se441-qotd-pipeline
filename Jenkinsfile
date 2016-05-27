@@ -1,10 +1,10 @@
-stage ”DEV-QA”
+stage "DEV-QA"
 
 node { 
-	git url: ’https://github.com/rherro12/se441-qotd.git’
+	git url: 'https://github.com/rherro12/se441-qotd.git'
 	
-	def gradleHome = tool ’Gradle 2.13’
-	bat ”${gradleHome}\\bin\\gradle.bat assemble uploadArchives”
+	def gradleHome = tool 'Gradle 2.13'
+	bat "${gradleHome}\\bin\\gradle.bat assemble uploadArchives"
 	
-	step([$class: ’ArtifactArchiver’, artifacts: ’**/*.war’, fingerprint: true])
+	step([$class: 'ArtifactArchiver', artifacts: '**/*.war', fingerprint: true])
 }
